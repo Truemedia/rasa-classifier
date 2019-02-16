@@ -4,7 +4,10 @@
   "description": "Rasa NLU powered intent classifier",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:server": "python -m rasa_nlu.server --path examples/models/",
+    "test:request": "curl -XPOST localhost:5000/parse -d '{\"q\":\"hello there\", \"model\": \"nlu\", \"project\": \"current\"}'",
+    "test:classifier": "node examples/test.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Truemedia/rasa-classifier/issues"
   },
-  "homepage": "https://github.com/Truemedia/rasa-classifier#readme"
+  "homepage": "https://github.com/Truemedia/rasa-classifier#readme",
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  }
 }
