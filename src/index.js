@@ -50,8 +50,10 @@ class RasaClassifier
         headers: {'Content-Type': 'application/json'}
       })
       .then(res => res.json())
-      .then(data => {
-        return data;
+      .then(kb => {
+        return {
+          intentName: kb.intent.name
+        };
       });
   }
 }
